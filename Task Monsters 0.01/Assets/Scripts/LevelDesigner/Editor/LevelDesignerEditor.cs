@@ -49,7 +49,7 @@ public class LevelDesignerEditor : Editor
 		Ray ray = HandleUtility.GUIPointToWorldRay (Event.current.mousePosition);
 		Vector3 tilePos = new Vector3 ();
 		tilePos.x = Mathf.RoundToInt (ray.origin.x); 
-		tilePos.z = Mathf.RoundToInt (ray.origin.z);  	
+		tilePos.y = Mathf.RoundToInt (ray.origin.y);  	
 		
 		if (tilePos != oldTilePos) 
 		{
@@ -60,7 +60,7 @@ public class LevelDesignerEditor : Editor
 		
 		Event current = Event.current;
 		
-		if (current.keyCode == KeyCode.LeftControl)
+		if (current.keyCode == KeyCode.C)
 		{
 			if(current.type == EventType.keyDown)
 			{
@@ -91,7 +91,7 @@ public class LevelDesignerEditor : Editor
 		if ((current.type == EventType.mouseDown) || (batchmode != BatchMode.None))
 		{
 			
-			string name = string.Format ("Tile{0}_{1}_{2}", script.depth, tilePos.z, tilePos.x);
+			string name = string.Format ("Tile{0}_{1}_{2}", script.depth, tilePos.y, tilePos.x);
 			
 			if ((current.button == 0) || (batchmode == BatchMode.Create))
 			{
@@ -110,7 +110,7 @@ public class LevelDesignerEditor : Editor
 	{
 		if (!GameObject.Find (name))
 		{
-			Vector3 pos = new Vector3(tilePos.x,script.depth, tilePos.z);
+			Vector3 pos = new Vector3(tilePos.x, tilePos.y, script.depth);
 			GameObject go = (GameObject)Instantiate (script.prefab,pos,Quaternion.identity);
 			go.name = name;
 		}

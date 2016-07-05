@@ -9,6 +9,6 @@ public class LevelDesigner : MonoBehaviour {
 
 	void OnDrawGizmos()
 	{
-		Gizmos.DrawWireCube(new Vector3(gizmoPosition.x,depth,gizmoPosition.z),new Vector3(1,1,1)); 
+		Gizmos.DrawWireCube(new Vector3(gizmoPosition.x, gizmoPosition.y, depth),new Vector3(1,1,1)); 
 	}
 }

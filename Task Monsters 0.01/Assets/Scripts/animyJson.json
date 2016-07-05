@@ -3,26 +3,56 @@
         {
             "Name": "Feuerschlange",
             "Health": 50,
-            "Attack_1_Damage": 20,
-            "Attack_2_Damage": 30,
-            "Attack_3_Damage": 35,
-            "Attack_4_Damage": 40,
-            "Attack_1_activated": true,
-            "Attack_2_activated": false,
-            "Attack_3_activated": false,
-            "Attack_4_activated": false
+			"Attacks":
+			[
+				{
+					"Name": "Würgegriff",
+					"Damage": 20,
+					"Activated": true
+				},
+				{
+					"Name": "Feuerwirbel",
+					"Damage": 30,
+					"Activated": false
+				},	
+				{
+					"Name": "Giftstich",
+					"Damage": 35,
+					"Activated": false
+				},
+				{
+					"Name": "Stachelwurf",
+					"Damage": 40,
+					"Activated": false
+				}
+			]
         },
-        {
-            "Name": "MuskelManni",
+		{
+            "Name": "MuskelMax",
             "Health": 60,
-            "Attack_1_Damage": 10,
-            "Attack_2_Damage": 20,
-            "Attack_3_Damage": 50,
-            "Attack_4_Damage": 80,
-            "Attack_1_activated": true,
-            "Attack_2_activated": false,
-            "Attack_3_activated": false,
-            "Attack_4_activated": false
+			"Attacks":
+			[
+				{
+					"Name": "Schwingende Faust",
+					"Damage": 10,
+					"Activated": true
+				},
+				{
+					"Name": "Faustpresse",
+					"Damage": 25,
+					"Activated": false
+				},
+				{
+					"Name": "Kinnhaken",
+					"Damage": 40,
+					"Activated": false
+				},
+				{
+					"Name": "Bodycheck",
+					"Damage": 50,
+					"Activated": false
+				}
+			]
         }
     ]
 }
