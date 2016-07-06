@@ -34,7 +34,7 @@ public class LevelDesignerEditor : Editor
 		EditorGUILayout.PrefixLabel ("Tile");
 		script.prefab = (GameObject) EditorGUILayout.ObjectField (script.prefab,typeof(GameObject), false);
 		EditorGUILayout.EndVertical ();
-		
+
 		EditorGUILayout.BeginVertical ();
 		EditorGUILayout.PrefixLabel ("Depth");
 		script.depth = EditorGUILayout.Slider (script.depth,-5,5);
