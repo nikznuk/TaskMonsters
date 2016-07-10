@@ -1,0 +1,110 @@
+{
+    "Stärke": [
+        {
+            "Name": "Feuerschlange",
+            "Health": 50,
+            "Attacks": [
+                {
+                    "Name": "Würgegriff",
+                    "Damage": 20,
+                    "Activated": true
+                },
+                {
+                    "Name": "Feuerwirbel",
+                    "Damage": 30,
+                    "Activated": false
+                },
+                {
+                    "Name": "Giftstich",
+                    "Damage": 35,
+                    "Activated": false
+                },
+                {
+                    "Name": "Stachelwurf",
+                    "Damage": 40,
+                    "Activated": false
+                }
+            ]
+        },
+        {
+            "Name": "MuskelMax",
+            "Health": 60,
+            "Attacks": [
+                {
+                    "Name": "Schwingende Faust",
+                    "Damage": 10,
+                    "Activated": true
+                },
+                {
+                    "Name": "Faustpresse",
+                    "Damage": 25,
+                    "Activated": false
+                },
+                {
+                    "Name": "Kinnhaken",
+                    "Damage": 40,
+                    "Activated": false
+                },
+                {
+                    "Name": "Bodycheck",
+                    "Damage": 50,
+                    "Activated": false
+                }
+            ]
+        }
+    ],
+    "Gesundheit": [
+        {
+            "Name": "MedizinTeufel",
+            "Health": 40,
+            "Attacks": [
+                {
+                    "Name": "Würgegriff",
+                    "Damage": 20,
+                    "Activated": true
+                },
+                {
+                    "Name": "Feuerwirbel",
+                    "Damage": 30,
+                    "Activated": false
+                },
+                {
+                    "Name": "Giftstich",
+                    "Damage": 35,
+                    "Activated": false
+                },
+                {
+                    "Name": "Stachelwurf",
+                    "Damage": 40,
+                    "Activated": false
+                }
+            ]
+        },
+        {
+            "Name": "Verbandsmumie",
+            "Health": 35,
+            "Attacks": [
+                {
+                    "Name": "Schwingende Faust",
+                    "Damage": 10,
+                    "Activated": true
+                },
+                {
+                    "Name": "Faustpresse",
+                    "Damage": 25,
+                    "Activated": false
+                },
+                {
+                    "Name": "Kinnhaken",
+                    "Damage": 40,
+                    "Activated": false
+                },
+                {
+                    "Name": "Bodycheck",
+                    "Damage": 50,
+                    "Activated": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,16 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using LitJson;
 
-public class Animy {
+public class Animy : MonoBehaviour {
+	public string name;
+	public int health;
+	public Attack[] attack;
 
-	public string name { get; set;}
-	public int health { get; set;}
-	public int attack_1_Damage { get; set;}
-	public int attack_2_Damage { get; set;}
-	public int attack_3_Damage { get; set;}
-	public int attack_4_Damage { get; set;}
-	public bool attack_1_activated { get; set;}
-	public bool attack_2_activated { get; set;}
-	public bool attack_3_activated { get; set;}
-	public bool attack_4_activated { get; set;}
+	public Animy () {
+	}
+
+	public Animy (string name, int health, Attack[] attack) {
+		this.name = name;
+		this.health = health;
+		this.attack = attack;
+	}
+}
+
+public class Attack {
+	public string name;
+	public int damage;
+	public bool activated;
+
+	public Attack (){
+	}
+
+	public Attack (string name, int damage, bool activated) {
+		this.name = name;
+		this.damage = damage;
+		this.activated = activated;
+	}
 }

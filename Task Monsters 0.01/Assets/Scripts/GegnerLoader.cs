@@ -5,18 +5,17 @@ using LitJson;
 
 public class GegnerLoader : MonoBehaviour {
 
+	public Animy animy;
+
 	private string jsonString;
-	private JsonData itemData;
+	private JsonData animyData;
 
-	void Start () {
-		jsonString = File.ReadAllText (Path.Combine(Application.dataPath, "Scripts/animyJson.json"));
-		itemData = JsonMapper.ToObject (jsonString);
+	public void CreateNewMonster (string category, int animyNumber) {
 
-		Debug.Log (GetAnimyData());
-	}
+		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/animyJson.json");
+		animyData = JsonMapper.ToObject (jsonString);
 
-	public JsonData GetAnimyData ()
-	{
-		return itemData [0][0][2][0][0];
+		animy.name = (string)animyData [category] [animyNumber] ["Name"];
+		animy.health = (int)animyData [category] [animyNumber] ["Health"];
 	}
 }
