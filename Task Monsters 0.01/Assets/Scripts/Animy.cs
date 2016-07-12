@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using LitJson;
 
 public class Animy : MonoBehaviour {
+	public int id;
 	public string name;
 	public int health;
 	public Attack[] attack;

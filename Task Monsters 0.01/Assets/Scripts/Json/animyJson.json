@@ -1,8 +1,11 @@
 {
     "Stärke": [
         {
+            "ID": 0,
             "Name": "Feuerschlange",
             "Health": 50,
+            "Level": 0,
+            "XP": 0,
             "Attacks": [
                 {
                     "Name": "Würgegriff",
@@ -27,8 +30,11 @@
             ]
         },
         {
+            "ID": 1,
             "Name": "MuskelMax",
             "Health": 60,
+            "Level": 0,
+            "XP": 0,
             "Attacks": [
                 {
                     "Name": "Schwingende Faust",
@@ -55,52 +61,238 @@
     ],
     "Gesundheit": [
         {
+            "ID": 0,
             "Name": "MedizinTeufel",
             "Health": 40,
+            "Level": 0,
+            "XP": 0,
             "Attacks": [
                 {
-                    "Name": "Würgegriff",
+                    "Name": "Giftspritze",
                     "Damage": 20,
                     "Activated": true
                 },
                 {
-                    "Name": "Feuerwirbel",
+                    "Name": "Gewittertanz",
                     "Damage": 30,
                     "Activated": false
                 },
                 {
-                    "Name": "Giftstich",
+                    "Name": "Erstickendes Stäbchen",
                     "Damage": 35,
                     "Activated": false
                 },
                 {
-                    "Name": "Stachelwurf",
+                    "Name": "Tödliche Röntgenstrahlen",
                     "Damage": 40,
                     "Activated": false
                 }
             ]
         },
         {
+            "ID": 1,
             "Name": "Verbandsmumie",
             "Health": 35,
+            "Level": 0,
+            "XP": 0,
             "Attacks": [
                 {
-                    "Name": "Schwingende Faust",
+                    "Name": "Fesselnde Binde",
                     "Damage": 10,
                     "Activated": true
                 },
                 {
-                    "Name": "Faustpresse",
+                    "Name": "Verbandskastenschlag",
                     "Damage": 25,
                     "Activated": false
                 },
                 {
-                    "Name": "Kinnhaken",
+                    "Name": "Kopfbinde",
                     "Damage": 40,
                     "Activated": false
                 },
                 {
-                    "Name": "Bodycheck",
+                    "Name": "Scherenschnitt",
+                    "Damage": 50,
+                    "Activated": false
+                }
+            ]
+        }
+    ],
+    "Intelligenz": [
+        {
+            "ID": 0,
+            "Name": "KI",
+            "Health": 40,
+            "Level": 0,
+            "XP": 0,
+            "Attacks": [
+                {
+                    "Name": "Schachmatt",
+                    "Damage": 20,
+                    "Activated": true
+                },
+                {
+                    "Name": "Hackingangriff",
+                    "Damage": 30,
+                    "Activated": false
+                },
+                {
+                    "Name": "In die Pfanne hauen",
+                    "Damage": 35,
+                    "Activated": false
+                },
+                {
+                    "Name": "Böse Fangfrage",
+                    "Damage": 40,
+                    "Activated": false
+                }
+            ]
+        },
+        {
+            "ID": 1,
+            "Name": "Einstein",
+            "Health": 35,
+            "Level": 0,
+            "XP": 0,
+            "Attacks": [
+                {
+                    "Name": "Schnelles Kopfrechnen",
+                    "Damage": 10,
+                    "Activated": true
+                },
+                {
+                    "Name": "Schreckliche Zunge",
+                    "Damage": 25,
+                    "Activated": false
+                },
+                {
+                    "Name": "Dimensionenverwirrung",
+                    "Damage": 40,
+                    "Activated": false
+                },
+                {
+                    "Name": "Schwarzes Loch",
+                    "Damage": 50,
+                    "Activated": false
+                }
+            ]
+        }
+    ],
+    "Charisma": [
+        {
+            "ID": 0,
+            "Name": "Meditations-Ich",
+            "Health": 40,
+            "Level": 0,
+            "XP": 0,
+            "Attacks": [
+                {
+                    "Name": "Erschlagende Stille",
+                    "Damage": 20,
+                    "Activated": true
+                },
+                {
+                    "Name": "Energieschwall",
+                    "Damage": 30,
+                    "Activated": false
+                },
+                {
+                    "Name": "Angriff auf dein inneres Ich",
+                    "Damage": 35,
+                    "Activated": false
+                },
+                {
+                    "Name": "Burn out",
+                    "Damage": 40,
+                    "Activated": false
+                }
+            ]
+        },
+        {
+            "ID": 1,
+            "Name": "Höflicher Horst",
+            "Health": 40,
+            "Level": 0,
+            "XP": 0,
+            "Attacks": [
+                {
+                    "Name": "Zuquasseln",
+                    "Damage": 20,
+                    "Activated": true
+                },
+                {
+                    "Name": "Tür hinter dir schließen",
+                    "Damage": 30,
+                    "Activated": false
+                },
+                {
+                    "Name": "Das Wasser reichen",
+                    "Damage": 35,
+                    "Activated": false
+                },
+                {
+                    "Name": "Zuvorkommen",
+                    "Damage": 40,
+                    "Activated": false
+                }
+            ]
+        }
+    ],
+    "Willenskraft": [
+        {
+            "ID": 0,
+            "Name": "Yoda",
+            "Health": 40,
+            "Level": 0,
+            "XP": 0,
+            "Attacks": [
+                {
+                    "Name": "Möge die Macht gegen dich sein",
+                    "Damage": 20,
+                    "Activated": true
+                },
+                {
+                    "Name": "Knock out",
+                    "Damage": 30,
+                    "Activated": false
+                },
+                {
+                    "Name": "Auspowern",
+                    "Damage": 35,
+                    "Activated": false
+                },
+                {
+                    "Name": "Aus dem Bett scheuchen",
+                    "Damage": 40,
+                    "Activated": false
+                }
+            ]
+        },
+        {
+            "ID": 1,
+            "Name": "Choutch Potato",
+            "Health": 35,
+            "Level": 0,
+            "XP": 0,
+            "Attacks": [
+                {
+                    "Name": "Tüte Chips anbieten",
+                    "Damage": 10,
+                    "Activated": true
+                },
+                {
+                    "Name": "Dich vom Arbeiten abhalten",
+                    "Damage": 25,
+                    "Activated": false
+                },
+                {
+                    "Name": "Schlafsand",
+                    "Damage": 40,
+                    "Activated": false
+                },
+                {
+                    "Name": "Wohnung verwüsten",
                     "Damage": 50,
                     "Activated": false
                 }
