@@ -13,6 +13,7 @@ public class MenuMonsterZweig : MonoBehaviour {
 	public Text attackenName2;
 	public Text attackenName3;
 	public Text attackenName4;
+	int monsterNummer;
 	public string categoryString = "";
 
 	List <int> activeMonster = new List<int>(){0, 0, 0, 0, 0};
@@ -21,6 +22,7 @@ public class MenuMonsterZweig : MonoBehaviour {
 	private string jsonString;
 	private JsonData animyData;
 
+	// speichert die angeklickte Kategorie 
 	public void SetClickedCategory (string categoryString) {
 		this.categoryString = categoryString;
 		switch (this.categoryString) {
@@ -40,10 +42,11 @@ public class MenuMonsterZweig : MonoBehaviour {
 			categoryInt = 4;
 			break;
 		}
-		SetMonsterData (activeMonster[categoryInt]);
+		monsterNummer = activeMonster [categoryInt];
+		SetMonsterData ();
 	}
 
-	public void SetMonsterData (int monsterNummer) {
+	public void SetMonsterData () {
 		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/animyJson.json");
 		animyData = JsonMapper.ToObject (jsonString);
 
@@ -53,5 +56,23 @@ public class MenuMonsterZweig : MonoBehaviour {
 		attackenName2.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [1] ["Name"];
 		attackenName3.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [2] ["Name"];
 		attackenName4.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [3] ["Name"];
+	}
+
+	public void SetMonsterData (int monsterNummer) {
+		this.monsterNummer = monsterNummer;
+		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/animyJson.json");
+		animyData = JsonMapper.ToObject (jsonString);
+
+		Debug.Log (categoryString + " " + monsterNummer + " " + categoryInt);
+		monsterName.text = (string)animyData [categoryString] [monsterNummer] ["Name"];
+		attackenName1.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [0] ["Name"];
+		attackenName2.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [1] ["Name"];
+		attackenName3.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [2] ["Name"];
+		attackenName4.text = (string)animyData [categoryString] [monsterNummer] ["Attacks"] [3] ["Name"];
+	}
+
+	public void MonsterAuswaehlen () {
+		activeMonster [categoryInt] = monsterNummer;
+		Debug.Log (monsterNummer);
 	}
 }

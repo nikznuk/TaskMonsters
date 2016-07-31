@@ -1,16 +1,1 @@
-[
-    {
-        "Aufgabe": "",
-        "Erledigt": false,
-        "BisWann": "",
-        "XP": 0,
-        "Kategorie": ""
-    },
-    {
-        "Aufgabe": "",
-        "Erledigt": false,
-        "BisWann": "",
-        "XP": 0,
-        "Kategorie": ""
-    }
-]
+{"aufgaben":[{"Aufgabe": "A","Erledigt": 0,"BisWann": "nie","Wiederholen": "nie","XP": 89,"Kategorie": "1"},{"Aufgabe": "A","Erledigt": 0,"BisWann": "nie","Wiederholen": "nie","XP": 89,"Kategorie": "1"},{"Aufgabe": "A","Erledigt": 0,"BisWann": "nie","Wiederholen": "nie","XP": 89,"Kategorie": "1"},{"Aufgabe": "A2","Erledigt": 0,"BisWann": "ü","Wiederholen": "wö","XP": 50,"Kategorie": "K3"},{"Aufgabe": "Aufgabe11","Erledigt": 0,"BisWann": "morgen","Wiederholen": "","XP": 0,"Kategorie": ""},{"Aufgabe": "Aufgabe2","Erledigt": 0,"BisWann": "nächste Woche","Wiederholen": "Nie","XP": 0,"Kategorie": ""},{"Aufgabe": "Aufgabe3","Erledigt": 0,"BisWann": "üm","Wiederholen": "Wöchentlich","XP": 147,"Kategorie": ""}]}
