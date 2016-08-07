@@ -11,7 +11,6 @@ public class XPChange : MonoBehaviour {
 		text.text = GetComponent<Slider> ().value.ToString();
 		int i;
 		int.TryParse (text.text, out i);
-		Debug.Log (i);
 		am.xpEingabe = i;
 	}
 
