@@ -24,7 +24,13 @@ public class AufgabenManager : MonoBehaviour {
 	public Transform parentPanel;
 	public Transform dataPref;
 
+	public Menu popUpPanel;
+
+	public MenuManager mm;
+
 	public List <Color> categorieColor;
+
+	public List <Transform> aufgabenListe;
 
 	string jsonString;
 	JsonData aufgabenData;
@@ -32,10 +38,39 @@ public class AufgabenManager : MonoBehaviour {
 
 	DateTime dateTimeAufgabe;
 
+	int idAufgabe;
+
 	public void Start () {
+		aufgabenListe = new List<Transform>();
 		aufgabenSammlung = new AufgabenSammlung ();
 		ReadJsonFile ();
 		WriteJsonFile ();
+	}
+
+	void Update () {
+		if (aufgabenListe.Count != 0) {
+			Debug.Log (aufgabenListe.Count);
+			for (int i = 0; i < aufgabenSammlung.aufgaben.Count - 1; i++) {
+				aufgabenListe [i].GetComponent <Aufgabe> ().erledigt = aufgabenSammlung.aufgaben [i].erledigt;
+			}
+		}
+	}
+
+	public void CheckErledigt (int id) {
+		mm.ShowPopUpMenu (popUpPanel);
+		idAufgabe = id;
+	}
+
+	public void ClosePopUp (int value) {
+		mm.ClosePopUpMenu ();
+		if (value == 1) {
+			aufgabenSammlung.aufgaben [idAufgabe].erledigt = 1;
+			aufgabenListe [idAufgabe].GetChild(0).GetChild(0).GetComponent <Image> ().color = new Color (1, 1, 1, 1);
+		}
+		if (value == 0) {
+			aufgabenSammlung.aufgaben [idAufgabe].erledigt = 0;
+			aufgabenListe [idAufgabe].GetChild(0).GetChild(0).GetComponent <Image> ().color = new Color (1, 1, 1, 0);
+		}
 	}
 
 	public void SetPanelSize () {
@@ -54,7 +89,17 @@ public class AufgabenManager : MonoBehaviour {
 			go.transform.parent = parentPanel;
 			go.GetComponent <RectTransform> ().offsetMax = new Vector2 (0, i * -250);
 			go.GetComponent <RectTransform> ().offsetMin = new Vector2 (0, i * -250 - 250);
-			go.GetComponent<RectTransform> ().localScale = new Vector3 (1, 1, 1);
+			go.GetComponent <RectTransform> ().localScale = new Vector3 (1, 1, 1);
+			aufgabenListe.Add (go);
+
+			go.GetComponent <Aufgabe> ().id = aufgabenSammlung.aufgaben [i].id;
+			go.GetComponent <Aufgabe> ().aufgabe = aufgabenSammlung.aufgaben [i].aufgabe;
+			go.GetComponent <Aufgabe> ().xp = aufgabenSammlung.aufgaben [i].xp;
+			go.GetComponent <Aufgabe> ().wiederholen = aufgabenSammlung.aufgaben [i].wiederholen;
+			go.GetComponent <Aufgabe> ().bisWann = ChangeTimeSting(aufgabenSammlung.aufgaben [i].bisWann);
+			go.GetComponent <Aufgabe> ().category = aufgabenSammlung.aufgaben [i].category;
+			go.GetComponent <Aufgabe> ().am = this;
+
 			go.GetChild (1).GetComponent <Text> ().text = aufgabenSammlung.aufgaben [i].aufgabe;
 			go.GetChild (2).GetComponent <Text> ().text = aufgabenSammlung.aufgaben [i].xp + " XP";
 			go.GetChild (3).GetComponent <Text> ().text = ChangeTimeSting(aufgabenSammlung.aufgaben [i].bisWann);
@@ -89,6 +134,15 @@ public class AufgabenManager : MonoBehaviour {
 				go.GetComponent <RectTransform> ().offsetMax = new Vector2 (0, yLenght * -250);
 				go.GetComponent <RectTransform> ().offsetMin = new Vector2 (0, yLenght * -250 - 250);
 				go.GetComponent<RectTransform> ().localScale = new Vector3 (1, 1, 1);
+
+				go.GetComponent <Aufgabe> ().id = aufgabenSammlung.aufgaben [i].id;
+				go.GetComponent <Aufgabe> ().aufgabe = aufgabenSammlung.aufgaben [i].aufgabe;
+				go.GetComponent <Aufgabe> ().xp = aufgabenSammlung.aufgaben [i].xp;
+				go.GetComponent <Aufgabe> ().wiederholen = aufgabenSammlung.aufgaben [i].wiederholen;
+				go.GetComponent <Aufgabe> ().bisWann = ChangeTimeSting(aufgabenSammlung.aufgaben [i].bisWann);
+				go.GetComponent <Aufgabe> ().category = aufgabenSammlung.aufgaben [i].category;
+				go.GetComponent <Aufgabe> ().am = this;
+
 				go.GetChild (1).GetComponent <Text> ().text = aufgabenSammlung.aufgaben [i].aufgabe;
 				go.GetChild (2).GetComponent <Text> ().text = aufgabenSammlung.aufgaben [i].xp + " XP";
 				go.GetChild (3).GetComponent <Text> ().text = ChangeTimeSting(aufgabenSammlung.aufgaben [i].bisWann);
@@ -168,7 +222,7 @@ public class AufgabenManager : MonoBehaviour {
 
 	public void AddAufgabe () {
 		SetBisWann ();
-		aufgabenSammlung.aufgaben.Add (new Aufgabe (aufgabeEingabe, erledigtEingabe, bisWannEingabe, wiederholenEingabe, xpEingabe, kategorieEingabe));
+		aufgabenSammlung.aufgaben.Add (new Aufgabe (aufgabenSammlung.aufgaben.Count, aufgabeEingabe, erledigtEingabe, bisWannEingabe, wiederholenEingabe, xpEingabe, kategorieEingabe));
 		WriteJsonFile ();
 	}
 
@@ -207,7 +261,8 @@ public class AufgabenManager : MonoBehaviour {
 		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/aufgaben.json");
 		aufgabenData = JsonMapper.ToObject (jsonString);
 		for (int i = 0; i < aufgabenData[0].Count; i++) {
-			aufgabenSammlung.aufgaben.Add (new Aufgabe ((string)aufgabenData [0] [i] ["Aufgabe"],
+			aufgabenSammlung.aufgaben.Add (new Aufgabe ((int)aufgabenData [0] [i] ["ID"], 
+				(string)aufgabenData [0] [i] ["Aufgabe"],
 				(int)	aufgabenData [0] [i] ["Erledigt"],
 				(string)aufgabenData [0] [i] ["BisWann"],
 				(string)aufgabenData [0] [i] ["Wiederholen"],
@@ -220,7 +275,8 @@ public class AufgabenManager : MonoBehaviour {
 		string jsonString = "{\"aufgaben\":[";
 		for (int i = 0; i < aufgabenSammlung.aufgaben.Count; i++) {
 			if (i + 1 == aufgabenSammlung.aufgaben.Count) {
-				jsonString += "{";
+				jsonString += "\t\t{";
+				jsonString += "\"ID\": " + i + ",";
 				jsonString += "\"Aufgabe\": \"" + aufgabenSammlung.aufgaben [i].aufgabe + "\",";
 				jsonString += "\"Erledigt\": " + aufgabenSammlung.aufgaben [i].erledigt + ",";
 				jsonString += "\"BisWann\": \"" + aufgabenSammlung.aufgaben [i].bisWann + "\",";
@@ -229,14 +285,15 @@ public class AufgabenManager : MonoBehaviour {
 				jsonString += "\"Kategorie\": \"" + aufgabenSammlung.aufgaben [i].category + "\"";
 				jsonString += "}";
 			} else {
-				jsonString += "{";
+				jsonString += "\t{";
+				jsonString += "\"ID\": " + i + ",";
 				jsonString += "\"Aufgabe\": \"" + aufgabenSammlung.aufgaben [i].aufgabe + "\",";
 				jsonString += "\"Erledigt\": " + aufgabenSammlung.aufgaben [i].erledigt + ",";
 				jsonString += "\"BisWann\": \"" + aufgabenSammlung.aufgaben [i].bisWann + "\",";
 				jsonString += "\"Wiederholen\": \"" + aufgabenSammlung.aufgaben [i].wiederholen + "\",";
 				jsonString += "\"XP\": " + aufgabenSammlung.aufgaben [i].xp + ",";
 				jsonString += "\"Kategorie\": \"" + aufgabenSammlung.aufgaben [i].category + "\"";
-				jsonString += "},";
+				jsonString += "},\n";
 			}
 		}
 		jsonString += "]}";

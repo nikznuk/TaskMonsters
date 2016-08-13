@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
 	public Menu currentMenu;
 	public Menu first_Menu;
+	Menu popUp_Menu;
 	public List<Camera> cameraList = new List<Camera>();
 
 	void Start () 
@@ -20,6 +21,15 @@ public class MenuManager : MonoBehaviour
 
 		currentMenu = menu;
 		currentMenu.IsOpen = true;
+	}
+
+	public void ShowPopUpMenu (Menu menu) {
+		popUp_Menu = menu;
+		popUp_Menu.IsOpen = true;
+	}
+
+	public void ClosePopUpMenu () {
+		popUp_Menu.IsOpen = false;
 	}
 
 	public void ChangeCamera (int cameraIndex)
