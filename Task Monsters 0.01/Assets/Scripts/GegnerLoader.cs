@@ -12,7 +12,7 @@ public class GegnerLoader : MonoBehaviour {
 
 	public void CreateNewMonster (string category, int animyNumber) {
 
-		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/animyJson.json");
+		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/monsterJson.json");
 		animyData = JsonMapper.ToObject (jsonString);
 
 		animy.name = (string)animyData [category] [animyNumber] ["Name"];

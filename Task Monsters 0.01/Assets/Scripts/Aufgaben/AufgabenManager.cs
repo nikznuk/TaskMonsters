@@ -25,8 +25,9 @@ public class AufgabenManager : MonoBehaviour {
 	public Transform dataPref;
 
 	public Menu popUpPanel;
-
 	public MenuManager mm;
+
+	public MenuMonsterZweig monsterZweig;
 
 	public List <Color> categorieColor;
 
@@ -39,6 +40,7 @@ public class AufgabenManager : MonoBehaviour {
 	DateTime dateTimeAufgabe;
 
 	int idAufgabe;
+	string cat;
 
 	public void Start () {
 		aufgabenListe = new List<Transform>();
@@ -48,11 +50,8 @@ public class AufgabenManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (aufgabenListe.Count != 0) {
-			Debug.Log (aufgabenListe.Count);
-			for (int i = 0; i < aufgabenSammlung.aufgaben.Count - 1; i++) {
-				aufgabenListe [i].GetComponent <Aufgabe> ().erledigt = aufgabenSammlung.aufgaben [i].erledigt;
-			}
+		for (int i = 0; i < aufgabenSammlung.aufgaben.Count; i++) {
+			aufgabenListe [i].GetComponent <Aufgabe> ().erledigt = aufgabenSammlung.aufgaben [i].erledigt;
 		}
 	}
 
@@ -64,8 +63,20 @@ public class AufgabenManager : MonoBehaviour {
 	public void ClosePopUp (int value) {
 		mm.ClosePopUpMenu ();
 		if (value == 1) {
-			aufgabenSammlung.aufgaben [idAufgabe].erledigt = 1;
-			aufgabenListe [idAufgabe].GetChild(0).GetChild(0).GetComponent <Image> ().color = new Color (1, 1, 1, 1);
+
+			//
+			// Wenn Aufgabe noch weiter nur mit Haken angezeigt werden soll
+			//
+//			aufgabenSammlung.aufgaben [idAufgabe].erledigt = 1;
+//			aufgabenListe [idAufgabe].GetChild(0).GetChild(0).GetComponent <Image> ().color = new Color (1, 1, 1, 1);
+
+
+			aufgabenSammlung.aufgaben.RemoveAt (idAufgabe);
+			WriteJsonFile ();
+			ReadJsonFile ();
+			CreateList ();
+			if (cat == "") SetPanelSize ();
+			if (cat != "") SetPanelSize (cat);
 		}
 		if (value == 0) {
 			aufgabenSammlung.aufgaben [idAufgabe].erledigt = 0;
@@ -75,7 +86,7 @@ public class AufgabenManager : MonoBehaviour {
 
 	public void SetPanelSize () {
 		float yLenght = 0;
-
+		cat = "";
 		var children = new List<GameObject>();
 		foreach (Transform child in parentPanel) children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
@@ -90,7 +101,7 @@ public class AufgabenManager : MonoBehaviour {
 			go.GetComponent <RectTransform> ().offsetMax = new Vector2 (0, i * -250);
 			go.GetComponent <RectTransform> ().offsetMin = new Vector2 (0, i * -250 - 250);
 			go.GetComponent <RectTransform> ().localScale = new Vector3 (1, 1, 1);
-			aufgabenListe.Add (go);
+			aufgabenListe [i] = go;
 
 			go.GetComponent <Aufgabe> ().id = aufgabenSammlung.aufgaben [i].id;
 			go.GetComponent <Aufgabe> ().aufgabe = aufgabenSammlung.aufgaben [i].aufgabe;
@@ -113,7 +124,7 @@ public class AufgabenManager : MonoBehaviour {
 
 	public void SetPanelSize (string category) {
 		float yLenght = 0;
-
+		cat = category;
 		var children = new List<GameObject>();
 		foreach (Transform child in parentPanel) children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
@@ -128,12 +139,12 @@ public class AufgabenManager : MonoBehaviour {
 		yLenght = 0;
 		for (int i = 0; i < aufgabenSammlung.aufgaben.Count; i++) {
 			if (aufgabenSammlung.aufgaben [i].category == category) {
-				Debug.Log (yLenght);
 				Transform go = Instantiate (dataPref);
 				go.transform.parent = parentPanel;
 				go.GetComponent <RectTransform> ().offsetMax = new Vector2 (0, yLenght * -250);
 				go.GetComponent <RectTransform> ().offsetMin = new Vector2 (0, yLenght * -250 - 250);
 				go.GetComponent<RectTransform> ().localScale = new Vector3 (1, 1, 1);
+				aufgabenListe [i] = go;
 
 				go.GetComponent <Aufgabe> ().id = aufgabenSammlung.aufgaben [i].id;
 				go.GetComponent <Aufgabe> ().aufgabe = aufgabenSammlung.aufgaben [i].aufgabe;
@@ -269,6 +280,7 @@ public class AufgabenManager : MonoBehaviour {
 				(int)	aufgabenData [0] [i] ["XP"],
 				(string)aufgabenData [0] [i] ["Kategorie"]));
 		}
+		CreateList ();
 	}
 
 	public void WriteJsonFile () {
@@ -297,7 +309,13 @@ public class AufgabenManager : MonoBehaviour {
 			}
 		}
 		jsonString += "]}";
-		Debug.Log (jsonString);
 		File.WriteAllText (Application.dataPath + "/Scripts/Json/aufgaben.json", jsonString);
+	}
+
+	public void CreateList () {
+		aufgabenListe.Clear ();
+		for (int i = 0; i < aufgabenSammlung.aufgaben.Count; i++) {
+			aufgabenListe.Add (null);
+		}
 	}
 }
