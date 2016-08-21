@@ -3,6 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+public class AufgabenSammlung : MonoBehaviour{
+	public List <Aufgabe> aufgaben = new List<Aufgabe>();
+
+	public AufgabenSammlung () {}
+
+	public AufgabenSammlung (List<Aufgabe> aufgaben) {
+		this.aufgaben = aufgaben;
+	}
+}
+
 public class Aufgabe : MonoBehaviour {
 
 	public int id;
@@ -28,15 +38,5 @@ public class Aufgabe : MonoBehaviour {
 
 	public void CheckErledigt () {
 		am.CheckErledigt (id);
-	}
-}
-
-public class AufgabenSammlung : MonoBehaviour{
-	public List <Aufgabe> aufgaben = new List<Aufgabe>();
-
-	public AufgabenSammlung () {}
-
-	public AufgabenSammlung (List<Aufgabe> aufgaben) {
-		this.aufgaben = aufgaben;
 	}
 }

@@ -19,7 +19,7 @@ public class MenuMonsterZweig : MonoBehaviour {
 	List <int> activeMonster = new List<int>(){0, 0, 0, 0, 0};
 	int categoryInt = 0;
 
-	MonsterSammlung monsterSammlung;
+	KategorieSammlung kategorieSammlung;
 
 	private string jsonString;
 	JsonData monsterData;
@@ -32,11 +32,10 @@ public class MenuMonsterZweig : MonoBehaviour {
 	public Transform parentPanel;
 
 	void Start () {
-		monsterSammlung = new MonsterSammlung ();
+		kategorieSammlung = new KategorieSammlung ();
 		GetAktiveMonster ();
 		ReadJsonFile ();
-		Debug.Log (monsterSammlung.categories[0].monsters.Count);
-		WriteJsonFile ();
+		//WriteJsonFile ();
 	}
 
 	// speichert die angeklickte Kategorie 
@@ -139,41 +138,38 @@ public class MenuMonsterZweig : MonoBehaviour {
 	}
 
 	public void ReadJsonFile () {
-		monsterSammlung.categories.Clear ();
+		kategorieSammlung.categories.Clear ();
 		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/monsterJson.json");
 		monsterData = JsonMapper.ToObject (jsonString);
-		for (int a = 0; a < monsterData.Count - 1; a++) {
-			Debug.Log (monsterData[0][0][0]);
-			monsterSammlung.categories [a].name = (string)monsterData [a];
-			monsterSammlung.categories.Add (new Category ());
+		Debug.Log (monsterData[0][0][1][0][5][0]["Name"]);
+		for (int a = 0; a < monsterData[0].Count; a++) {
+			
+			List <Monster> monsterlist = new List<Monster> ();
+			for (int b = 0; b < monsterData[0][a][1].Count; b++) {
 
-			for (int b = 0; b < monsterData[a].Count - 1; b++) {
-				monsterSammlung.categories [a].monsters.Add (new Monster());
-
-				List <AttackMonster> attacks = new List<AttackMonster> ();
-				for (int c = 0; c < monsterData[a][b][5].Count - 1; c++) {
-					attacks.Add (new AttackMonster());
-					for (int d = 0; d < monsterData [a][b][5][c].Count - 1; d++) {
-						attacks [c].name = (string)monsterData [a][b][5][c]["Name"];
-						attacks [c].damage = (int)monsterData [a][b][5][c]["Damage"];
-						attacks [c].activated = (int)monsterData [a][b][5][c]["Activated"];
-					}
+				List <AttackMonster> attackmonsterlist = new List<AttackMonster> ();
+				for (int c = 0; c < monsterData[0][a][1][b][5].Count; c++) {
+					
+					attackmonsterlist.Add (new AttackMonster ((string) monsterData [0][a][1][b][5][c]["Name"],
+						(int) monsterData [0][a][1][b][5][c]["Damage"],
+						(int) monsterData [0][a][1][b][5][c]["Activated"],
+						(int) monsterData [0][a][1][b][5][c]["CooldownAttacks"]));
 				}
-
-				monsterSammlung.categories [a].monsters [b].id = (int)monsterData [a][b]["ID"];
-				monsterSammlung.categories [a].monsters [b].name = (string)monsterData [a][b]["Name"];
-				monsterSammlung.categories [a].monsters [b].health = (int)monsterData [a][b]["Health"];
-				monsterSammlung.categories [a].monsters [b].level = (int)monsterData [a][b]["Level"];
-				monsterSammlung.categories [a].monsters [b].xp = (int)monsterData [a][b]["XP"];
-				monsterSammlung.categories [a].monsters [b].attack = attacks;
+				monsterlist.Add (new Monster ((int) monsterData [0] [a] [1] [b] ["ID"],
+					(string) monsterData [0] [a] [1] [b] ["Name"],
+					(int) monsterData [0] [a] [1] [b] ["Health"],
+					(int) monsterData [0] [a] [1] [b] ["Level"],
+					(int) monsterData [0] [a] [1] [b] ["XP"],
+					attackmonsterlist));
 			}
+			kategorieSammlung.categories.Add (new Category ((string)monsterData[0][a]["Name"], monsterlist));
 		}
 	}
 
 	public void WriteJsonFile () {
 		string jsonString = "{";
 		for (int a = 0; a < monsterData.Count - 1; a++) {
-			jsonString += "\"" + monsterSammlung.categories [0];
+			jsonString += "\"" + kategorieSammlung.categories [0];
 			for (int b = 0; b < monsterData[a].Count - 1; b++) {
 				
 				for (int c = 0; c < monsterData[a][b][5].Count - 1; c++) {
