@@ -24,6 +24,7 @@ public class AufgabenManager : MonoBehaviour {
 	public Transform parentPanel;
 	public Transform dataPref;
 
+	public Menu aktuellesMonster;
 	public Menu popUpPanel;
 	public MenuManager mm;
 
@@ -46,7 +47,6 @@ public class AufgabenManager : MonoBehaviour {
 		aufgabenListe = new List<Transform>();
 		aufgabenSammlung = new AufgabenSammlung ();
 		ReadJsonFile ();
-		WriteJsonFile ();
 	}
 
 	void Update () {
@@ -70,6 +70,7 @@ public class AufgabenManager : MonoBehaviour {
 //			aufgabenSammlung.aufgaben [idAufgabe].erledigt = 1;
 //			aufgabenListe [idAufgabe].GetChild(0).GetChild(0).GetComponent <Image> ().color = new Color (1, 1, 1, 1);
 
+			SendXP ((string)aufgabenSammlung.aufgaben[idAufgabe].category, aufgabenSammlung.aufgaben[idAufgabe].xp);
 
 			aufgabenSammlung.aufgaben.RemoveAt (idAufgabe);
 			WriteJsonFile ();
@@ -284,7 +285,7 @@ public class AufgabenManager : MonoBehaviour {
 	}
 
 	public void WriteJsonFile () {
-		string jsonString = "{\"aufgaben\":[";
+		string jsonString = "{\"aufgaben\": [";
 		for (int i = 0; i < aufgabenSammlung.aufgaben.Count; i++) {
 			if (i + 1 == aufgabenSammlung.aufgaben.Count) {
 				jsonString += "\t\t{";
@@ -317,5 +318,10 @@ public class AufgabenManager : MonoBehaviour {
 		for (int i = 0; i < aufgabenSammlung.aufgaben.Count; i++) {
 			aufgabenListe.Add (null);
 		}
+	}
+
+	public void SendXP (string category, int xp) {
+		mm.ShowMenu (aktuellesMonster);
+		monsterZweig.AktivesMonsterAufleveln (ConvertCategoryStringToInt(category), xp);
 	}
 }

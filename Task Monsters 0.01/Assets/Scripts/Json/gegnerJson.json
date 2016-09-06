@@ -1,0 +1,359 @@
+{
+	"Kategorien": [
+		{
+			"Name": "Stärke",
+			"Monster": [
+				{
+					"ID": 0,
+					"Name": "FeuerschlangeG",
+					"Health": 50,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "WürgegriffG",
+							"Damage": 20,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "FeuerwirbelG",
+							"Damage": 30,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "GiftstichG",
+							"Damage": 35,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "StachelwurfG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				},
+				{
+					"ID": 1,
+					"Name": "MuskelMaxG",
+					"Health": 60,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "Schwingende FaustG",
+							"Damage": 10,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "FaustpresseG",
+							"Damage": 25,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "KinnhakenG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "BodycheckG",
+							"Damage": 50,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Gesundheit",
+			"Monster": [
+				{
+					"ID": 0,
+					"Name": "MedizinTeufelG",
+					"Health": 40,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "GiftspritzeG",
+							"Damage": 20,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "GewittertanzG",
+							"Damage": 30,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Erstickendes StäbchenG",
+							"Damage": 35,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Tödliche RöntgenstrahlenG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				},
+				{
+					"ID": 1,
+					"Name": "VerbandsmumieG",
+					"Health": 35,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "Fesselnde BindeG",
+							"Damage": 10,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "VerbandskastenschlagG",
+							"Damage": 25,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "KopfbindeG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "ScherenschnittG",
+							"Damage": 50,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Intelligenz",
+			"Monster": [
+				{
+					"ID": 0,
+					"Name": "KIG",
+					"Health": 40,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "SchachmattG",
+							"Damage": 20,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "HackingangriffG",
+							"Damage": 30,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "In die Pfanne hauenG",
+							"Damage": 35,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Böse FangfrageG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				},
+				{
+					"ID": 1,
+					"Name": "EinsteinG",
+					"Health": 35,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "Schnelles KopfrechnenG",
+							"Damage": 10,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Schreckliche ZungeG",
+							"Damage": 25,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "DimensionenverwirrungG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Schwarzes LochG",
+							"Damage": 50,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Charisma",
+			"Monster": [
+				{
+					"ID": 0,
+					"Name": "Meditations-IchG",
+					"Health": 40,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "Erschlagende StilleG",
+							"Damage": 20,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "EnergieschwallG",
+							"Damage": 30,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Angriff auf dein inneres IchG",
+							"Damage": 35,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Burn outG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				},
+				{
+					"ID": 1,
+					"Name": "Höflicher HorstG",
+					"Health": 40,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "ZuquasselnG",
+							"Damage": 20,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Tür hinter dir schließenG",
+							"Damage": 30,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Das Wasser reichenG",
+							"Damage": 35,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "ZuvorkommenG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				}
+			]
+		},
+		{
+			"Name": "Willenskraft",
+			"Monster": [
+				{
+					"ID": 0,
+					"Name": "YodaG",
+					"Health": 40,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "Möge die Macht gegen dich seinG",
+							"Damage": 20,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Knock outG",
+							"Damage": 30,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "AuspowernG",
+							"Damage": 35,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Aus dem Bett scheuchenG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				},
+				{
+					"ID": 1,
+					"Name": "Choutch PotatoG",
+					"Health": 35,
+					"Level": 0,
+					"XP": 0,
+					"Attacks": [
+						{
+							"Name": "Tüte Chips anbietenG",
+							"Damage": 10,
+							"Activated": 1,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Dich vom Arbeiten abhaltenG",
+							"Damage": 25,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "SchlafsandG",
+							"Damage": 40,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						},
+						{
+							"Name": "Wohnung verwüstenG",
+							"Damage": 50,
+							"Activated": 0,
+							"CooldownAttacks": 0
+						}
+					]
+				}
+			]
+		}
+	]
+}
