@@ -11,13 +11,12 @@ public class XPChange : MonoBehaviour {
 		text.text = GetComponent<Slider> ().value.ToString();
 		int i;
 		int.TryParse (text.text, out i);
-		am.xpEingabe = i;
+		am.SetXP (i);
 	}
 
 	public void ChangeSlider (string value) {
 		int valueI;
 		int.TryParse (value, out valueI); 
 		GetComponent<Slider> ().value = valueI;
-
 	}
 }

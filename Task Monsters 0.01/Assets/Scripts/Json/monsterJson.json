@@ -7,8 +7,8 @@
 					"ID": 0,
 					"Name": "Feuerschlange",
 					"Health": 50,
-					"Level": 1,
-					"XP": 45,
+					"Level": 3,
+					"XP": 12,
 					"Attacks": [
 						{
 							"Name": "Würgegriff",
@@ -78,8 +78,8 @@
 					"ID": 0,
 					"Name": "MedizinTeufel",
 					"Health": 40,
-					"Level": 0,
-					"XP": 0,
+					"Level": 1,
+					"XP": 248,
 					"Attacks": [
 						{
 							"Name": "Giftspritze",
@@ -150,7 +150,7 @@
 					"Name": "KI",
 					"Health": 40,
 					"Level": 0,
-					"XP": 0,
+					"XP": 300,
 					"Attacks": [
 						{
 							"Name": "Schachmatt",
@@ -220,8 +220,8 @@
 					"ID": 0,
 					"Name": "Meditations-Ich",
 					"Health": 40,
-					"Level": 0,
-					"XP": 0,
+					"Level": 1,
+					"XP": 100,
 					"Attacks": [
 						{
 							"Name": "Erschlagende Stille",
@@ -292,7 +292,7 @@
 					"Name": "Yoda",
 					"Health": 40,
 					"Level": 0,
-					"XP": 0,
+					"XP": 300,
 					"Attacks": [
 						{
 							"Name": "Möge die Macht gegen dich sein",

@@ -36,6 +36,10 @@ public class Aufgabe : MonoBehaviour {
 		this.category = category;
 	}
 
+	public void SetAufgabenData () {
+		am.SetBearbeitendeAufgabenData (id);
+	}
+
 	public void CheckErledigt () {
 		am.CheckErledigt (id);
 	}

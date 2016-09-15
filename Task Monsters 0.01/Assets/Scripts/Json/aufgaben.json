@@ -1,1 +1,16 @@
-{"aufgaben": []}
+{"aufgaben": [	{"ID": 0,"Aufgabe": "223ewd","Erledigt": 0,"BisWann": "2016-09-12","Wiederholen": "","XP": 50,"Kategorie": "Gesundheit"},
+	{"ID": 1,"Aufgabe": "45dfggdsf","Erledigt": 0,"BisWann": "2017-02-03","Wiederholen": "","XP": 97,"Kategorie": "Stärke"},
+	{"ID": 2,"Aufgabe": "as","Erledigt": 0,"BisWann": "2016-09-12","Wiederholen": "","XP": 50,"Kategorie": "Stärke"},
+	{"ID": 3,"Aufgabe": "asf","Erledigt": 0,"BisWann": "2016-09-14","Wiederholen": "","XP": 50,"Kategorie": "Intelligenz"},
+	{"ID": 4,"Aufgabe": "dh","Erledigt": 0,"BisWann": "2016-10-05","Wiederholen": "","XP": 50,"Kategorie": "Willenskraft"},
+	{"ID": 5,"Aufgabe": "dtfh","Erledigt": 0,"BisWann": "2017-08-07","Wiederholen": "","XP": 89,"Kategorie": "Gesundheit"},
+	{"ID": 6,"Aufgabe": "e75tdh","Erledigt": 0,"BisWann": "2017-06-05","Wiederholen": "","XP": 50,"Kategorie": "Gesundheit"},
+	{"ID": 7,"Aufgabe": "eatdhf","Erledigt": 0,"BisWann": "2016-12-24","Wiederholen": "","XP": 131,"Kategorie": "Willenskraft"},
+	{"ID": 8,"Aufgabe": "hdfg5","Erledigt": 0,"BisWann": "2016-11-14","Wiederholen": "","XP": 131,"Kategorie": "Charisma"},
+	{"ID": 9,"Aufgabe": "hrt","Erledigt": 0,"BisWann": "2016-09-20","Wiederholen": "","XP": 50,"Kategorie": "Intelligenz"},
+	{"ID": 10,"Aufgabe": "rezg","Erledigt": 0,"BisWann": "2017-05-04","Wiederholen": "","XP": 150,"Kategorie": "Willenskraft"},
+	{"ID": 11,"Aufgabe": "srsgf","Erledigt": 0,"BisWann": "2016-12-04","Wiederholen": "","XP": 50,"Kategorie": "Gesundheit"},
+	{"ID": 12,"Aufgabe": "zejg","Erledigt": 0,"BisWann": "2017-04-04","Wiederholen": "","XP": 50,"Kategorie": "Intelligenz"},
+	{"ID": 13,"Aufgabe": "zejg","Erledigt": 0,"BisWann": "2017-05-04","Wiederholen": "","XP": 50,"Kategorie": "Intelligenz"},
+	{"ID": 14,"Aufgabe": "zejg","Erledigt": 0,"BisWann": "2017-05-04","Wiederholen": "","XP": 50,"Kategorie": "Intelligenz"},
+		{"ID": 15,"Aufgabe": "zejgiu","Erledigt": 0,"BisWann": "2017-04-05","Wiederholen": "","XP": 73,"Kategorie": "Willenskraft"}]}
