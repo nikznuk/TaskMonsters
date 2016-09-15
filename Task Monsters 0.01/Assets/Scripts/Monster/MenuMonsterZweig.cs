@@ -21,7 +21,7 @@ public class MenuMonsterZweig : MonoBehaviour {
 	List <int> activeMonster = new List<int>(){0, 0, 0, 0, 0};
 	int categoryInt = 0;
 
-	KategorieSammlung kategorieSammlung;
+	KategorieSammlung kategorieSammlungMonster;
 
 	private string jsonString;
 	JsonData monsterData;
@@ -34,7 +34,7 @@ public class MenuMonsterZweig : MonoBehaviour {
 	public Transform parentPanel;
 
 	void Start () {
-		kategorieSammlung = new KategorieSammlung ();
+		kategorieSammlungMonster = new KategorieSammlung ();
 		GetAktiveMonster ();
 		ReadJsonFile ();
 		WriteJsonFile ();
@@ -69,13 +69,13 @@ public class MenuMonsterZweig : MonoBehaviour {
 		animyData = JsonMapper.ToObject (jsonString);
 
 		Debug.Log (monsterNummer + "ohne");
-		monsterName.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].name;
-		xpLabel.text = "XP: " + kategorieSammlung.categories [categoryInt].monsters [monsterNummer].xp;
-		levelLabel.text = "Level: " + kategorieSammlung.categories [categoryInt].monsters [monsterNummer].level;
-		attackenName1.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [0].name;
-		attackenName2.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [1].name;
-		attackenName3.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [2].name;
-		attackenName4.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [3].name;
+		monsterName.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].name;
+		xpLabel.text = "XP: " + kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].xp;
+		levelLabel.text = "Level: " + kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].level;
+		attackenName1.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [0].name;
+		attackenName2.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [1].name;
+		attackenName3.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [2].name;
+		attackenName4.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [3].name;
 	}
 
 	public void SetMonsterData (int monsterNummer) {
@@ -84,56 +84,56 @@ public class MenuMonsterZweig : MonoBehaviour {
 		animyData = JsonMapper.ToObject (jsonString);
 
 		Debug.Log (monsterNummer + "mit");
-		monsterName.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].name;
-		xpLabel.text = "XP: " + kategorieSammlung.categories [categoryInt].monsters [monsterNummer].xp;
-		levelLabel.text = "Level: " + kategorieSammlung.categories [categoryInt].monsters [monsterNummer].level;
-		attackenName1.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [0].name;
-		attackenName2.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [1].name;
-		attackenName3.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [2].name;
-		attackenName4.text = kategorieSammlung.categories [categoryInt].monsters [monsterNummer].attack [3].name;
+		monsterName.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].name;
+		xpLabel.text = "XP: " + kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].xp;
+		levelLabel.text = "Level: " + kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].level;
+		attackenName1.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [0].name;
+		attackenName2.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [1].name;
+		attackenName3.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [2].name;
+		attackenName4.text = kategorieSammlungMonster.categories [categoryInt].monsters [monsterNummer].attack [3].name;
 	}
 
 	public void AktivesMonsterAufleveln (int category, int xp) {
 		switch (category) {
 		case 0:
-			kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp += xp;
-			if (kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
+			kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp += xp;
+			if (kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
 			}
-			xpLabel.text = kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp.ToString();
+			xpLabel.text = kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp.ToString();
 			break;
 		case 1:			
-			kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Gesundheit")].xp += xp;
-			if (kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
+			kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Gesundheit")].xp += xp;
+			if (kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
 			}
-			xpLabel.text = kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Gesundheit")].xp.ToString();
+			xpLabel.text = kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Gesundheit")].xp.ToString();
 			break;
 		case 2:
-			kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Intelligenz")].xp += xp;
-			if (kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
+			kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Intelligenz")].xp += xp;
+			if (kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
 			}
-			xpLabel.text = (string)kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Intelligenz")].xp.ToString();
+			xpLabel.text = (string)kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Intelligenz")].xp.ToString();
 			break;
 		case 3:
-			kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Charisma")].xp += xp;
-			if (kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
+			kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Charisma")].xp += xp;
+			if (kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
 			}
-			xpLabel.text = (string)kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Charisma")].xp.ToString();
+			xpLabel.text = (string)kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Charisma")].xp.ToString();
 			break;
 		case 4:
-			kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Willenskraft")].xp += xp;
-			if (kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
-				kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
+			kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Willenskraft")].xp += xp;
+			if (kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp > 500) {
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].xp -= 500;
+				kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Stärke")].level += 1;
 			}	
-			xpLabel.text = (string)kategorieSammlung.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Willenskraft")].xp.ToString();
+			xpLabel.text = (string)kategorieSammlungMonster.categories [category].monsters [PlayerPrefs.GetInt ("Aktive Monster Willenskraft")].xp.ToString();
 			break;
 		}
 		WriteJsonFile ();
@@ -161,28 +161,28 @@ public class MenuMonsterZweig : MonoBehaviour {
 	}
 
 	public void CalculatePanelSize () {
-		int animyAnzahl = kategorieSammlung.categories[categoryInt].monsters.Count;
+		int animyAnzahl = kategorieSammlungMonster.categories[categoryInt].monsters.Count;
 
 		parentPanel.GetComponent<RectTransform> ().offsetMax = new Vector2 ((animyAnzahl + 1) * 25 + animyAnzahl * 300 ,0);
 		parentPanel.GetComponent<RectTransform> ().offsetMin = new Vector2 ((animyAnzahl + 1) * -25 - animyAnzahl * 300 ,0);
 
-		for (int i = 0; i < kategorieSammlung.categories[categoryInt].monsters.Count; i++) {
+		for (int i = 0; i < kategorieSammlungMonster.categories[categoryInt].monsters.Count; i++) {
 			Transform go = Instantiate (pref);
 			go.transform.parent = parentPanel;
 			go.GetComponent<RectTransform> ().offsetMax = new Vector2 (650 + i * 50 + i * 600, 300);
 			go.GetComponent<RectTransform> ().offsetMin = new Vector2 (50 + i * 50 + i * 600, -300);
 			go.GetComponent<RectTransform> ().localScale = new Vector3 (1, 1, 1);
-			go.GetComponent<Animy> ().id = i;
-			go.GetComponentInChildren<Text> ().text = kategorieSammlung.categories [categoryInt].monsters [i].name;
+			go.GetComponent<Monster> ().id = i;
+			go.GetComponentInChildren<Text> ().text = kategorieSammlungMonster.categories [categoryInt].monsters [i].name;
 			go.GetComponent<Button> ().onClick.AddListener (delegate {
 				menuManager.ShowMenu (menu);
-				mmz.SetMonsterData (go.GetComponent<Animy>().id);
+				mmz.SetMonsterData (go.GetComponent<Monster>().id);
 			});
 		}
 	}
 
 	public void ReadJsonFile () {
-		kategorieSammlung.categories.Clear ();
+		kategorieSammlungMonster.categories.Clear ();
 		jsonString = File.ReadAllText (Application.dataPath + "/Scripts/Json/monsterJson.json");
 		monsterData = JsonMapper.ToObject (jsonString);
 		for (int a = 0; a < monsterData[0].Count; a++) {
@@ -205,35 +205,35 @@ public class MenuMonsterZweig : MonoBehaviour {
 					(int) monsterData [0] [a] [1] [b] ["XP"],
 					attackmonsterlist));
 			}
-			kategorieSammlung.categories.Add (new Category ((string)monsterData[0][a]["Name"], monsterlist));
+			kategorieSammlungMonster.categories.Add (new Category ((string)monsterData[0][a]["Name"], monsterlist));
 		}
 	}
 
 	public void WriteJsonFile () {
 		string jsonString = "{\n\t\"Kategorien\": [";
-		for (int a = 0; a < kategorieSammlung.categories.Count; a++) {
+		for (int a = 0; a < kategorieSammlungMonster.categories.Count; a++) {
 			jsonString += "\n\t\t{";
-			jsonString += "\n\t\t\t\"Name\": \"" + kategorieSammlung.categories[a].name + "\",";
+			jsonString += "\n\t\t\t\"Name\": \"" + kategorieSammlungMonster.categories[a].name + "\",";
 			jsonString += "\n\t\t\t\"Monster\": [";
 
-			for (int b = 0; b < kategorieSammlung.categories[a].monsters.Count; b++) {
+			for (int b = 0; b < kategorieSammlungMonster.categories[a].monsters.Count; b++) {
 				jsonString += "\n\t\t\t\t{";
-				jsonString += "\n\t\t\t\t\t\"ID\": " + kategorieSammlung.categories [a].monsters [b].id + ",";
-				jsonString += "\n\t\t\t\t\t\"Name\": \"" + kategorieSammlung.categories [a].monsters [b].name + "\",";
-				jsonString += "\n\t\t\t\t\t\"Health\": " + kategorieSammlung.categories [a].monsters [b].health + ",";
-				jsonString += "\n\t\t\t\t\t\"Level\": " + kategorieSammlung.categories [a].monsters [b].level + ",";
-				jsonString += "\n\t\t\t\t\t\"XP\": " + kategorieSammlung.categories [a].monsters [b].xp + ",";
+				jsonString += "\n\t\t\t\t\t\"ID\": " + kategorieSammlungMonster.categories [a].monsters [b].id + ",";
+				jsonString += "\n\t\t\t\t\t\"Name\": \"" + kategorieSammlungMonster.categories [a].monsters [b].name + "\",";
+				jsonString += "\n\t\t\t\t\t\"Health\": " + kategorieSammlungMonster.categories [a].monsters [b].health + ",";
+				jsonString += "\n\t\t\t\t\t\"Level\": " + kategorieSammlungMonster.categories [a].monsters [b].level + ",";
+				jsonString += "\n\t\t\t\t\t\"XP\": " + kategorieSammlungMonster.categories [a].monsters [b].xp + ",";
 				jsonString += "\n\t\t\t\t\t\"Attacks\": [";
 
-				for (int c = 0; c < kategorieSammlung.categories[a].monsters[b].attack.Count; c++) {
+				for (int c = 0; c < kategorieSammlungMonster.categories[a].monsters[b].attack.Count; c++) {
 					jsonString += "\n\t\t\t\t\t\t{";
-					jsonString += "\n\t\t\t\t\t\t\t\"Name\": \"" + kategorieSammlung.categories[a].monsters[b].attack[c].name + "\",";
-					jsonString += "\n\t\t\t\t\t\t\t\"Damage\": " + kategorieSammlung.categories[a].monsters[b].attack[c].damage + ",";
-					jsonString += "\n\t\t\t\t\t\t\t\"Activated\": " + kategorieSammlung.categories[a].monsters[b].attack[c].activated + ",";
-					jsonString += "\n\t\t\t\t\t\t\t\"CooldownAttacks\": " + kategorieSammlung.categories[a].monsters[b].attack[c].cooldownAttacks;
+					jsonString += "\n\t\t\t\t\t\t\t\"Name\": \"" + kategorieSammlungMonster.categories[a].monsters[b].attack[c].name + "\",";
+					jsonString += "\n\t\t\t\t\t\t\t\"Damage\": " + kategorieSammlungMonster.categories[a].monsters[b].attack[c].damage + ",";
+					jsonString += "\n\t\t\t\t\t\t\t\"Activated\": " + kategorieSammlungMonster.categories[a].monsters[b].attack[c].activated + ",";
+					jsonString += "\n\t\t\t\t\t\t\t\"CooldownAttacks\": " + kategorieSammlungMonster.categories[a].monsters[b].attack[c].cooldownAttacks;
 					jsonString += "\n\t\t\t\t\t\t}";
 
-					if (c != kategorieSammlung.categories[a].monsters[b].attack.Count - 1) {
+					if (c != kategorieSammlungMonster.categories[a].monsters[b].attack.Count - 1) {
 						jsonString += ",";
 					}
 				}
@@ -241,14 +241,14 @@ public class MenuMonsterZweig : MonoBehaviour {
 				jsonString += "\n\t\t\t\t\t]";
 				jsonString += "\n\t\t\t\t}";
 
-				if (b != kategorieSammlung.categories[a].monsters.Count - 1) {
+				if (b != kategorieSammlungMonster.categories[a].monsters.Count - 1) {
 					jsonString += ",";
 				}
 			}
 
 			jsonString += "\n\t\t\t]";
 			jsonString += "\n\t\t}";
-			if (a != kategorieSammlung.categories.Count - 1) {
+			if (a != kategorieSammlungMonster.categories.Count - 1) {
 				jsonString += ",";
 			}
 		}
